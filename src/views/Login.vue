@@ -5,6 +5,7 @@
       <h2>login</h2>
       <p>with google</p>
     </div>
+    <div></div>
   </div>
 </template>
 <script lang="ts">
@@ -26,6 +27,7 @@ export default class Login extends Vue {
               name: response.user.displayName
             });
         }
+
         this.$router.push("/top");
       })
       .catch((err: any) => {
