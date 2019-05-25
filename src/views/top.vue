@@ -11,7 +11,10 @@ import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import { auth, db } from "../firebase";
 import firebase from "firebase";
 @Component({})
-export default class Login extends Vue {}
+export default class Login extends Vue {
+  provider = new firebase.auth.GoogleAuthProvider();
+  public signInWithGoogleRedirect() {}
+}
 </script>
 <style lang="scss" scoped>
 .login {
