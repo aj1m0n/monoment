@@ -8,13 +8,12 @@
 
 <script lang="ts">
 import firebase from "firebase/app";
-import firestore from "firebase/firestore";
-import { auth, db } from "../firebase";
-import "firebase/auth";
+import firestore from "@/firestore";
 import firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 import { Component, Vue } from "vue-property-decorator";
 import UserDataType from "@/types/UserDataType";
+
 @Component({})
 export default class SignIn extends Vue {
   private mounted() {
@@ -26,7 +25,7 @@ export default class SignIn extends Vue {
       callbacks: {
         signInSuccessWithAuthResult: (authResult, redirectUrl) => {
           this.saveUser(authResult.user).then(() => {
-            this.$router.push("/mypage");
+            this.$router.push("/home");
           });
           return false;
         }
@@ -36,7 +35,7 @@ export default class SignIn extends Vue {
     });
   }
   private async saveUser(user: firebase.User) {
-    const userRef = db.collection("users").doc(user.uid);
+    const userRef = firestore.collection("users").doc(user.uid);
     const userDoc = await userRef.get();
     const userData: UserDataType = {};
     if (!userDoc.exists) {
@@ -46,9 +45,19 @@ export default class SignIn extends Vue {
   }
 }
 </script>
-
 <style scoped>
-.sign-in {
+.greeting {
   text-align: center;
+}
+.preview {
+  height: 300px;
+  overflow: scroll;
+  border: solid 1px #aaa;
+  border-radius: 3px;
+  padding: 10px;
+}
+.image {
+  max-width: 300px;
+  max-height: 300px;
 }
 </style>
