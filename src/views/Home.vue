@@ -45,7 +45,7 @@ export default class home extends Vue {
   private sanitizedProfile: string = "";
   private selectedFile: any = null;
   private imageUrl: string = "";
-
+  private workspace: string = "";
   private created() {
     firestore
       .collection("users")
@@ -83,6 +83,14 @@ export default class home extends Vue {
   private selectFile(e: any): void {
     this.selectedFile = e.target.files[0];
   }
+  private workspacein() {
+    this.$router.push("/inworkspace");
+  }
+  private WorkSpaceOut() {}
+  private CrateWorkSpace() {
+    this.$router.push("/crateworkspace");
+  }
+
   get displayName(): string {
     return this.$store.getters.user.name || "Nameless";
   }

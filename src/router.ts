@@ -22,6 +22,18 @@ export default new Router({
       meta: { requiresAuth: true }
     },
     {
+      path: "/inworkspace",
+      name: "inworkspace",
+      component: () => import("./views/InWorkSpace.vue"),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: "/crateworkspace",
+      name: "crateworkspace",
+      component: () => import("./views/CrateWorkSpace.vue"),
+      meta: { requiresAuth: true }
+    },
+    {
       path: "/about",
       name: "about",
       // route level code-splitting
