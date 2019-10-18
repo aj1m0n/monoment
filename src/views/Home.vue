@@ -90,6 +90,9 @@ export default class home extends Vue {
   private CrateWorkSpace() {
     this.$router.push("/crateworkspace");
   }
+  private rental() {
+    this.$router.push("/rental");
+  }
 
   get displayName(): string {
     return this.$store.getters.user.name || "Nameless";

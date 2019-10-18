@@ -34,6 +34,12 @@ export default new Router({
       meta: { requiresAuth: true }
     },
     {
+      path: "/rental",
+      name: "rental",
+      component: () => import("./views/rental.vue"),
+      meta: { requiresAuth: true }
+    },
+    {
       path: "/about",
       name: "about",
       // route level code-splitting
